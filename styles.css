@@ -1,9 +1,39 @@
+
 body {
-  background-color: #3AB4F2;
+  background-color: white;
+  background-image: url("https://img.freepik.com/vektoren-premium/zerknittertes-blatt-millimeterpapier-hintergrund_47243-1131.jpg?w=2000");
+  font-family: 'Just Another Hand', sans-serif;
 }
+
+h1{
+  margin-top: 30px;
+  text-shadow: 1.5px 2px 4px rgba(136, 165, 191, 0.48);
+  font-size: 45px;
+  text-decoration: underline solid black 4px;
+}
+
 .formtxt{
+  margin-top: 25px;
+  font-weight: bold;
+  font-size: 30px;
+  text-shadow: 1.5px 2px 4px rgba(136, 165, 191, 0.48);
+}
+
+.form-control{
+  box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+  font-size: 27px;
+}
+
+#button{
+  margin-top: 40px;
+  font-size: 30px;
+  box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+
+}
+
+#grade{
   margin-top: 30px;
   font-weight: bold;
-  font-size: 20px;
-
+  font-size: 40px;
+  text-shadow: 1.5px 2px 4px rgba(136, 165, 191, 0.48);
 }
