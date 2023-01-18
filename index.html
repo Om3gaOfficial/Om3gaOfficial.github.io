@@ -21,21 +21,21 @@
         <div class="row">
           <div class="col-md justify-content-md-center">
             <label class="form-label formtxt">Grade Test 1</label>
-            <input type="number" id="t1" class="form-control" placeholder="17" min="0" max="20" title="Enter your result of the first test">
+            <input type="number" step="any" id="t1" class="form-control" placeholder="17" min="0" max="20" title="Enter your result of the first test">
           </div>
           <div class="col-md">
             <label class="form-label formtxt">Grade Test 2</label>
-            <input type="number" id="t2" class="form-control" placeholder="20" min="0" max="20" title="Enter your result of the second test">
+            <input type="number" step="any" id="t2" class="form-control" placeholder="20" min="0" max="20" title="Enter your result of the second test">
           </div>
           <div class="col-md">
             <label class="form-label formtxt">Grade Test 3</label>
-            <input type="number" id="t3" class="form-control" placeholder="8" min="0" max="20" title="Enter your result of the third test">
+            <input type="number" step="any" id="t3" class="form-control" placeholder="8" min="0" max="20" title="Enter your result of the third test">
           </div>
         </div>
         <div class="row justify-content-md-center">
           <div class="col-md col-lg-4">
             <label class="form-label formtxt">Crossed Assignments</label>
-            <input type="number" id="k" class="form-control" placeholder="45" min="0" max="60" title="Enter the total number of assignments you will submit">
+            <input type="number" step="any" id="k" class="form-control" placeholder="45" min="0" max="60" title="Enter the total number of assignments you will submit">
           </div>
           <div class="col-md col-lg-8">
             <label class="form-label formtxt">Board Performance</label>
@@ -53,7 +53,7 @@
         </div>
         <div class="row">
           <div class="col-md col-lg">
-            <p id="grade" title="Pray!">This could be your Grade!</p>
+            <a id="aGrade"><p id="grade" title="Pray!">This could be your Grade!</p></a>
           </div>
         </div>
       </div>
@@ -67,7 +67,7 @@
     function calculateGrade() {
     try {
       var k = document.getElementById("k").value;
-      var N = 60;
+      var N = 60; // Number of assignments
       var t1 = document.getElementById("t1").value;
       var t2 = document.getElementById("t2").value;
       var t3 = document.getElementById("t3").value;
@@ -94,15 +94,22 @@
       }
       p = p / pArray.length;
       
+      
       var grade = (
         Math.floor(((5 * k) / (6 * N)) + 0.5)
         * Math.floor(((parseFloat(t1) + parseFloat(t2) + parseFloat(t3) - Math.min(parseFloat(t1), parseFloat(t2), parseFloat(t3))) / 40) + 0.5)
         * Math.floor((p / 8) + 0.5) * ((k / (5 * N)) + ((parseFloat(t1) + parseFloat(t2) + parseFloat(t3)) / 100) + (p / 50))
       );
       
+      document.getElementById("aGrade").removeAttribute("href");
+      document.getElementById("aGrade").style.color = "#000000";
+
+      // Determine the grade
       if(0 <= grade && grade < 0.4){
         textGrade = "'Unsatisfactory!'  |  5"
         document.getElementById("grade").style.color = "#c41e16";
+        document.getElementById("aGrade").href = "mailto:studienabteilung@tuwien.ac.at?subject=Exmatikulation";
+        document.getElementById("aGrade").style.color = "#c41e16";
       }else if (0.4 <= grade && grade < 0.55){
         textGrade = "'Sufficient'  |  4"
         document.getElementById("grade").style.color = "#CC5500";
