@@ -75,15 +75,20 @@
       
       var p = 0;
       var textGrade = "";
-      if(isNaN(k) || pArray == "" || pArray == " " || isNaN(t1) || isNaN(t2) || isNaN(t3)){
-        throw "Error!";
+
+      if((k == "" || pArray == "" || pArray == " " || t1 == "" || t2 == "" || t3 == "")){
+        if(k == "" && (pArray == "" || pArray == " ") && t1 == "" && t2 == "" && t3 == ""){
+          return;
+        }else{
+          throw "Error! #0";
+      }
       }
       
       var pArray = pArray.split(",");
       for (var i = 0; i < pArray.length; i++) {
         temp = parseInt(pArray[i]);
         if(isNaN(temp) || temp < 0 || temp > 10){
-          throw "Error!";
+          throw "Error! #1";
         }
         p += temp;
       }
@@ -111,11 +116,11 @@
         textGrade = "'Very Good!'  |  1"
         document.getElementById("grade").style.color = "#58d124";
       }else{
-        throw "Error!";
+        throw "Error! #2";
       }
       
       document.getElementById("grade").innerHTML = textGrade + "<br>(" + roundToTwo(grade * 100) + "%)";
-
+    
     } catch (e) {
       document.getElementById("grade").style.color = "#aa0000";
       document.getElementById("grade").innerHTML = "Error! Please check input values!";
